@@ -83,6 +83,10 @@ public class Tris extends JPanel
                     buttonClicked.setText("O");
                 else
                     buttonClicked.setText("X");
+                
+                //Imposta colore bottoni
+                if(COLOR_PLAYER1=="Rosso")
+                    buttonClicked.setForeground(Color.RED);
             }
             else
                 {
@@ -92,18 +96,26 @@ public class Tris extends JPanel
                     buttonClicked.setText("O");
             }
 
-            if(checkForWin() == true)
+
+            if(checkForWin() == 1)
             {
-                JOptionPane.showMessageDialog(null, "Gioco Terminato.");
+                JOptionPane.showMessageDialog(null, "Vittoria! Gioco Terminato.");
                 resetButtons();
+            }
+            else if(checkForWin()==3)
+            {
+                JOptionPane.showMessageDialog(null, "Nessun vincitore. Gioco Terminato.");
+                System.exit(1);
             }
 
             alternate++;
 
         }
 
-        public boolean checkForWin()
+        public int checkForWin()
         {
+            int i=0;
+            String s="";
             /**   Reference: the button array is arranged like this as the board
              *      0 | 1 | 2
              *      3 | 4 | 5
@@ -111,29 +123,40 @@ public class Tris extends JPanel
              */
             //horizontal win check
             if( checkAdjacent(0,1) && checkAdjacent(1,2) ) //no need to put " == true" because the default check is for true
-                return true;
+                return 1;
             else if( checkAdjacent(3,4) && checkAdjacent(4,5) )
-                return true;
+                return 1;
             else if ( checkAdjacent(6,7) && checkAdjacent(7,8))
-                return true;
+                return 1;
 
                 //vertical win check
             else if ( checkAdjacent(0,3) && checkAdjacent(3,6))
-                return true;
+                return 1;
             else if ( checkAdjacent(1,4) && checkAdjacent(4,7))
-                return true;
+                return 1;
             else if ( checkAdjacent(2,5) && checkAdjacent(5,8))
-                return true;
+                return 1;
 
                 //diagonal win check
             else if ( checkAdjacent(0,4) && checkAdjacent(4,8))
-                return true;
+                return 1;
             else if ( checkAdjacent(2,4) && checkAdjacent(4,6))
-                return true;
-            else
-                return false;
+                return 1;
+
+            for(i=0;i<9;i++)
+            {
+                s = buttons[i].getText();
+                if (s.equals(""))
+                    return 2;
+            }
 
 
+            if (!checkAdjacent(0,1) && !checkAdjacent(1,2) && !checkAdjacent(3,4) &&
+                    !checkAdjacent(4,5) && !checkAdjacent(6,7) && !checkAdjacent(7,8) &&
+                    !checkAdjacent(0,3) && !checkAdjacent(3,6) && !checkAdjacent(1,4) && !checkAdjacent(4,7) &&
+                    !checkAdjacent(2,5) && !checkAdjacent(5,8) && !checkAdjacent(0,4) && !checkAdjacent(4,8) && !checkAdjacent(2,4) &&
+                    !checkAdjacent(4,6));
+                return 3;
         }
 
         public boolean checkAdjacent(int a, int b)

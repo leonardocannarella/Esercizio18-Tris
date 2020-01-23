@@ -33,7 +33,7 @@ public class Test
         confirmbtn.setForeground(Color.RED);
         settinglbl.setFont(new Font("TimesRoman", Font.BOLD, 25));
 
-        JFrame setting = new JFrame("Tris");
+        JFrame setting = new JFrame("Impostazioni");
         setting.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setting.setLayout(new GridLayout(4,3));
         setting.getContentPane().add(settinglbl);
