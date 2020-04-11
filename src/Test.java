@@ -55,13 +55,14 @@ public class Test
 
         JFrame window = new JFrame("Tris");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().add(new Tris());
+        window.getContentPane().add(t1);
         window.setBounds(300,200,300,300);
         window.setVisible(false);
 
         confirmbtn.addActionListener(new ActionListener()
         {
-            public void actionPerformed(ActionEvent ae){
+            public void actionPerformed(ActionEvent ae)
+            {
                 if(symbol1.getSelectedItem()==symbol2.getSelectedItem())
                 {
                     JOptionPane.showMessageDialog(null,"Scegli due simboli diversi!");
@@ -76,6 +77,9 @@ public class Test
                     t1.setCOLOR_PLAYER2(color2.getSelectedItem().toString());
                     t1.setSYMBOL_PLAYER1(symbol1.getSelectedItem().toString());
                     t1.setSYMBOL_PLAYER2(symbol2.getSelectedItem().toString());
+
+                    if(t1.getSYMBOL_PLAYER1().equals("O"))
+                        t1.setAlternate(1);
 
                     System.out.println(t1.getSYMBOL_PLAYER1());
                     System.out.println(t1.getSYMBOL_PLAYER2());
