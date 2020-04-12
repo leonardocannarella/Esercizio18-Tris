@@ -10,25 +10,35 @@ public class Test
         Tris t1 = new Tris();
         JLabel settinglbl = new JLabel("IMPOSTAZIONI", SwingConstants.CENTER);
         JLabel giocatore1lbl = new JLabel("Giocatore 1", SwingConstants.CENTER);
+        giocatore1lbl.setFont(giocatore1lbl.getFont().deriveFont(20.0f));
         JLabel giocatore2lbl = new JLabel("Giocatore 2", SwingConstants.CENTER);
+        giocatore2lbl.setFont(giocatore2lbl.getFont().deriveFont(20.0f));
         JLabel symbollbl = new JLabel("Simboli", SwingConstants.CENTER);
+        symbollbl.setFont(symbollbl.getFont().deriveFont(20.0f));
         JLabel colorlbl = new JLabel("Colori", SwingConstants.CENTER);
+        colorlbl.setFont(colorlbl.getFont().deriveFont(20.0f));
         JComboBox symbol1 = new JComboBox();
+        symbol1.setFont(symbol1.getFont().deriveFont(20.0f));
         symbol1.addItem("X");
         symbol1.addItem("O");
         JComboBox symbol2 = new JComboBox();
+        symbol2.setFont(symbol2.getFont().deriveFont(20.0f));
         symbol2.addItem("O");
         symbol2.addItem("X");
         JComboBox color1 = new JComboBox();
+        color1.setFont(color1.getFont().deriveFont(20.0f));
         color1.addItem("Rosso");
         color1.addItem("Verde");
         color1.addItem("Blu");
         JComboBox color2 = new JComboBox();
+        color2.setFont(color2.getFont().deriveFont(20.0f));
         color2.addItem("Verde");
         color2.addItem("Rosso");
         color2.addItem("Blu");
         JButton standardbtn = new JButton("Predefinito");
+        standardbtn.setFont(standardbtn.getFont().deriveFont(20.0f));
         JButton confirmbtn = new JButton("Conferma");
+        confirmbtn.setFont(confirmbtn.getFont().deriveFont(20.0f));
 
         confirmbtn.setForeground(Color.RED);
         settinglbl.setFont(new Font("TimesRoman", Font.BOLD, 25));
@@ -56,7 +66,7 @@ public class Test
         JFrame window = new JFrame("Tris");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.getContentPane().add(t1);
-        window.setBounds(300,200,300,300);
+        window.setBounds(300,200,700,700);
         window.setVisible(false);
 
         confirmbtn.addActionListener(new ActionListener()
@@ -87,6 +97,18 @@ public class Test
                     window.setVisible(true);
                     setting.setVisible(false);
                 }
+            }
+        });
+
+        standardbtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                t1.setCOLOR_PLAYER1("Rosso");
+                t1.setCOLOR_PLAYER2("Verde");
+                t1.setSYMBOL_PLAYER1("X");
+                t1.setSYMBOL_PLAYER2("O");
+
+                window.setVisible(true);
+                setting.setVisible(false);
             }
         });
     }

@@ -74,6 +74,7 @@ public class Tris extends JPanel implements ActionListener
         for(int i = 0; i <= 8; i++)
         {
             buttons[i].setText("");
+            buttons[i].setEnabled(true);
             buttons[i].setBackground(null);
         }
         if(i == 1)
@@ -93,7 +94,8 @@ public class Tris extends JPanel implements ActionListener
     public void actionPerformed(ActionEvent e)
     {
         JButton buttonClicked = (JButton)e.getSource();
-
+        buttonClicked.setEnabled(false);
+        
         if(getSYMBOL_PLAYER1().equals("X"))
         {
             if(alternate%2 == 0)
@@ -103,12 +105,18 @@ public class Tris extends JPanel implements ActionListener
                 {
                     case "Rosso":
                         buttonClicked.setBackground(Color.RED);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Verde":
                         buttonClicked.setBackground(Color.green);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Blu":
                         buttonClicked.setBackground(Color.blue);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                 }
             }
@@ -118,12 +126,18 @@ public class Tris extends JPanel implements ActionListener
                 {
                     case "Rosso":
                         buttonClicked.setBackground(Color.RED);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Verde":
                         buttonClicked.setBackground(Color.green);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Blu":
                         buttonClicked.setBackground(Color.blue);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                 }
             }
@@ -137,12 +151,18 @@ public class Tris extends JPanel implements ActionListener
                 {
                     case "Rosso":
                         buttonClicked.setBackground(Color.RED);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Verde":
                         buttonClicked.setBackground(Color.green);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Blu":
                         buttonClicked.setBackground(Color.blue);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                 }
             }
@@ -152,12 +172,18 @@ public class Tris extends JPanel implements ActionListener
                 {
                     case "Rosso":
                         buttonClicked.setBackground(Color.RED);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Verde":
                         buttonClicked.setBackground(Color.green);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                     case "Blu":
                         buttonClicked.setBackground(Color.blue);
+                        buttonClicked.setForeground(Color.white);
+                        buttonClicked.setFont(buttonClicked.getFont().deriveFont(100.0f));
                         break;
                 }
             }
@@ -174,7 +200,6 @@ public class Tris extends JPanel implements ActionListener
             JOptionPane.showMessageDialog(null, "Nessun vincitore. Gioco Terminato.");
             resetButtons();
         }
-
         alternate++;
 
     }
